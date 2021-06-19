@@ -1,0 +1,17 @@
+@import "_variables.scss";
+
+.app {
+	height: 100vh;
+	width: 100vw;
+	
+	.aside {
+		height: 100%;
+		width: 330px;
+		background-color: $c-dark;
+		color: $c-white;
+	}
+	
+	.content {
+	
+	}
+}

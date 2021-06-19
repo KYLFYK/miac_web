@@ -1,0 +1,33 @@
+@import "../_variables.scss";
+
+.wrapper {
+	padding-top: 60px;
+	
+	.user {
+		display: flex;
+		align-items: center;
+		padding-left: 30px;
+		padding-right: 30px;
+		margin-bottom: 100px;
+		
+		.img {
+			min-width: 80px;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			overflow: hidden;
+			
+			img {
+				object-fit: contain;
+				min-width: 100%;
+				min-height: 100%;
+			}
+		}
+		
+		.userName {
+			@include text-16-reg;
+			
+			margin-left: 20px;
+		}
+	}
+}

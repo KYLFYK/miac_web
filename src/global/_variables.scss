@@ -1,0 +1,68 @@
+$c-dark: #120338;
+$c-black: #050526;
+$c-white: #FBFBFF;
+$c-red: #FF4D4F;
+$c-blue: #1890FF;
+$c-green: #95DE64;
+$c-border: rgba(0, 0, 0, 0.1);
+$c-back: #F8F8F8;
+
+@mixin h1 {
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 34px;
+}
+
+@mixin h1-regular {
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 34px;
+}
+
+@mixin text-22-b {
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 25px;
+}
+
+@mixin text-22-reg {
+	font-weight: normal;
+	font-size: 22px;
+	line-height: 25px;
+}
+
+@mixin text-16-bold {
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+@mixin text-16-reg {
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+@mixin text-16-light {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+@mixin text-12-bold {
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+@mixin text-12-reg {
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+@mixin text-12-light {
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+}
