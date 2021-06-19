@@ -1,10 +1,48 @@
 import styles from './App.module.scss';
 import 'antd/dist/antd.css';
 
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route } from 'react-router-dom'
+import { Breadcrumb } from "antd"
 
 import MenuContainer from "./menu/MenuContainer"
-import Home from "../components/home/Home"
+import HomeContainer from "../components/home/HomeContainer"
+
+const routes = [
+    {
+        path: '/',
+        breadcrumbName: 'Главная',
+    },
+    // {
+    //     path: '/pacients',
+    //     breadcrumbName: 'Пациенты',
+    //     // children: [
+    //     //     {
+    //     //         path: '/general',
+    //     //         breadcrumbName: 'General',
+    //     //     },
+    //     //     {
+    //     //         path: '/layout',
+    //     //         breadcrumbName: 'Layout',
+    //     //     },
+    //     //     {
+    //     //         path: '/navigation',
+    //     //         breadcrumbName: 'Navigation',
+    //     //     },
+    //     // ],
+    // },
+    // {
+    //     path: 'survey',
+    //     breadcrumbName: 'Приемы',
+    // },
+];
+function itemRender(route, params, routes, paths) {
+    const last = routes.indexOf(route) === routes.length - 1;
+    return last ? (
+        <span>{route.breadcrumbName}</span>
+    ) : (
+        <NavLink to={paths.join('/')}>{route.breadcrumbName}</NavLink>
+    );
+}
 
 function App() {
   return (
@@ -14,7 +52,8 @@ function App() {
                 <MenuContainer />
             </aside>
             <div className={styles.content}>
-                <Route path={['/home', '/']} render={() => <Home />} />
+                <Breadcrumb itemRender={itemRender} routes={routes} />
+                <Route exact path={['/home', '/']} render={() => <HomeContainer />} />
             </div>
         </div>
       </BrowserRouter>

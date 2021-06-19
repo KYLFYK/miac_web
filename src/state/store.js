@@ -1,8 +1,10 @@
 import { combineReducers, createStore } from 'redux'
 import { menuReducer } from "./menuReducer"
+import { homeReducer } from "./homeReducer"
 
 let reducers = combineReducers({
-	menu: menuReducer
+	menu: menuReducer,
+	home: homeReducer
 })
 
 let store = createStore(reducers)

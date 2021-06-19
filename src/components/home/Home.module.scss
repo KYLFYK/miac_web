@@ -1,0 +1,184 @@
+@import '../../global/_variables.scss';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	padding-top: 40px;
+	padding-right: 20px;
+	color: $c-black;
+	max-height: 100%;
+	overflow-y: auto;
+	overflow-x: visible;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-bottom: 40px;
+}
+
+.alert {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid $c-border;
+	border-bottom: 1px solid $c-border;
+	
+	.ico {
+		min-width: 60px;
+		width: 60px;
+		height: 60px;
+		margin-right: 30px;
+		border-radius: 4px;
+		background-color: $c-red;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		.svg {
+			font-size: 36px;
+			color: $c-white;
+		}
+	}
+	
+	.userContainer {
+		min-width: 200px;
+	}
+	
+	.alertText {
+		max-width: 200px;
+		margin: 0 50px 0 0;
+		
+		@include text-16-reg;
+	}
+	
+	.info {
+		display: flex;
+		align-items: center;
+		margin-left: 30px;
+		
+		.infoItem {
+			display: flex;
+			flex-direction: column;
+			
+			@include text-16-bold;
+			
+			.red {
+				color: $c-red;
+			}
+			
+			.separetor {
+				color: #D9D9D9;
+				margin: 0 4px;
+			}
+			
+			&:not(:last-of-type) {
+				margin-right: 24px;
+			}
+			
+			.infoItemName {
+				@include text-12-reg;
+				
+				margin-top: 2px;
+				color: rgba(0, 0, 0, 0.7);
+			}
+		}
+	}
+	
+	.button {
+		margin-left: auto;
+	}
+}
+
+.widgets {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px 70px;
+}
+
+.widget {
+	width: 395px;
+	
+	.widgetTitle {
+		display: inline-block;
+		margin-bottom: 16px;
+		
+		@include text-22-b;
+	}
+	
+	.slider {
+		border-radius: 6px;
+		overflow: hidden;
+	}
+	
+	.slide {
+		position: relative;
+		width: 395px;
+		height: 160px;
+		
+		.sliderImage {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			
+			img {
+				object-fit: contain;
+				width: 100%;
+			}
+		}
+		
+		.content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+			padding: 20px;
+			background-color: rgba(0,0,0,0.4);
+			
+			.contentText {
+				display: flex;
+				flex-direction: column;
+			}
+			
+			.sliderName {
+				display: inline-block;
+				color: $c-white;
+				margin-bottom: 4px;
+				
+				@include text-12-bold;
+			}
+			
+			.sliderDate {
+				color: $c-white;
+				
+				@include text-12-light;
+			}
+		}
+	}
+	
+	.progress {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 20px;
+	}
+	
+	.bar {
+		.berText {
+			@include text-12-reg;
+		}
+	}
+	
+	.widgetCard {
+	
+	}
+}
