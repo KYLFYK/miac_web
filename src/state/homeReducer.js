@@ -34,7 +34,7 @@ let initialState = {
 		userName: 'Иванов Иван',
 		pulse: '87',
 		pressure: ['152', '91'],
-		stressLevel: '1'
+		stressLevel: 'violet'
 	},
 	stats: {
 		conscientiousness: 90,

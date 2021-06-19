@@ -11,29 +11,7 @@ const routes = [
     {
         path: '/',
         breadcrumbName: 'Главная',
-    },
-    // {
-    //     path: '/pacients',
-    //     breadcrumbName: 'Пациенты',
-    //     // children: [
-    //     //     {
-    //     //         path: '/general',
-    //     //         breadcrumbName: 'General',
-    //     //     },
-    //     //     {
-    //     //         path: '/layout',
-    //     //         breadcrumbName: 'Layout',
-    //     //     },
-    //     //     {
-    //     //         path: '/navigation',
-    //     //         breadcrumbName: 'Navigation',
-    //     //     },
-    //     // ],
-    // },
-    // {
-    //     path: 'survey',
-    //     breadcrumbName: 'Приемы',
-    // },
+    }
 ];
 function itemRender(route, params, routes, paths) {
     const last = routes.indexOf(route) === routes.length - 1;

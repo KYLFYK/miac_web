@@ -179,6 +179,44 @@
 	}
 	
 	.widgetCard {
-	
+		.cardItem {
+			display: flex;
+			justify-content: space-between;
+			
+			.cardText {
+				@include text-16-reg;
+			}
+			
+			.cardValue {
+				@include text-16-bold;
+				
+				text-align: right;
+				
+				&.green {
+					color: $c-green;
+				}
+				
+				&.dark {
+					color: $c-dark;
+				}
+				
+				.cardsepareator {
+					color: #D9D9D9;
+					margin: 0 5px;
+				}
+			}
+			
+			.cardImage {
+				display: inline-block;
+				width: 18px;
+				min-width: 18px;
+				height: 18px;
+				border-radius: 50%;
+				
+				&.violet {
+					background-color: $c-violet;
+				}
+			}
+		}
 	}
 }

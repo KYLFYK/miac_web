@@ -147,19 +147,32 @@ const Home = (props) => {
 						Последние показания
 					</span>
 					<div className={styles.widgetCard}>
-						<Card size="small" title={props.lastSurvey.userName} extra={<a href="#">More</a>} style={{ width: 300 }}>
+						<Card size="small" title={props.lastSurvey.userName} extra={<NavLink to={`/pacients/${props.lastSurvey.userId}`}>Подробнее</NavLink>} style={{ width: 300 }}>
 							<p className={styles.cardItem}>
 								<span className={styles.cardText}>
-								
+									Пульс
+								</span>
+								<span className={`${styles.cardValue} ${styles.green}`}>
+									{props.lastSurvey.pulse}
 								</span>
 							</p>
 							<p className={styles.cardItem}>
 								<span className={styles.cardText}>
-								
+									Давление
+								</span>
+								<span className={`${styles.cardValue} ${styles.dark}`}>
+									{props.lastSurvey.pressure[0]}
+									<span className={styles.cardsepareator}>
+										/
+									</span>
+									{props.lastSurvey.pressure[1]}
 								</span>
 							</p>
 							<p className={styles.cardItem}>
 								<span className={styles.cardText}>
+									Уровень стресса
+								</span>
+								<span className={`${styles.cardImage} ${styles.violet}`}>
 								
 								</span>
 							</p>
