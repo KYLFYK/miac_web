@@ -1,5 +1,5 @@
-import image from '../assts/user-pacient.jpg'
-import bigPhoto from '../assts/user-bg.jpg'
+import image from '../assets/user-pacient.jpg'
+import bigPhoto from '../assets/user-bg.jpg'
 
 let initialState = {
 	alert: true,

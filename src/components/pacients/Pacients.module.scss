@@ -1,5 +1,11 @@
 @import '../../global/_variables.scss';
 
+.pacientsPage {
+	max-height: 100%;
+	overflow-y: auto;
+	padding-right: 12px;
+}
+
 .searchField {
 	margin-top: 30px;
 	margin-bottom: 16px;
@@ -33,5 +39,84 @@
 	.filterBtns {
 		display: flex;
 		gap: 14px;
+	}
+}
+
+.pacientsList {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	
+	.pacient {
+		display: flex;
+		align-items: center;
+		padding: 20px;
+		background-color: $c-white;
+		border-radius: 4px;
+		border: 1px solid transparent;
+		white-space: nowrap;
+		
+		.userContainer {
+			min-width: 220px;
+			margin-right: 30px;
+		}
+		
+		&.mark {
+			border-color: $c-red;
+		}
+	}
+	
+	.pacientKeys {
+		display: flex;
+		gap: 30px;
+		
+		.pacientKey {
+			display: flex;
+			flex-direction: column;
+			
+			.keyTitle {
+				margin-bottom: 2px;
+				
+				@include text-12-bold;
+			}
+			
+			.keyValue {
+				@include text-12-reg;
+				
+				&.orange {
+					color: $c-yellow;
+				}
+				
+				&.red {
+					color: $c-red;
+				}
+				
+				&.green {
+					color: $c-green;
+				}
+			}
+		}
+	}
+	
+	.links {
+		margin-left: 60px;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		
+		.link {
+			.svg {
+				font-size: 20px;
+				color: $c-black;
+				transition: color .3s ease-out;
+			}
+			
+			&:hover {
+				.svg {
+					color: $c-blue;
+				}
+			}
+		}
 	}
 }

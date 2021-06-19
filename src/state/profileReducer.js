@@ -1,11 +1,7 @@
-import image from '../assets/user-image.jpg'
-
 const SET_MENU_ITEM = 'SET_MENU_ITEM'
 
 let initialState = {
-	currentSelect: 'home',
-	userName: 'Анастасия Иванова',
-	userImage: image
+	currentPage: 'info'
 }
 
 export const selectMenu = (text) => ({
@@ -13,12 +9,12 @@ export const selectMenu = (text) => ({
 	selectedItem: text
 })
 
-export const menuReducer = (state = initialState, action) => {
+export const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_MENU_ITEM:
 			return {
 				...state,
-				currentSelect: action.selectedItem
+				currentPage: action.selectedItem
 			}
 		default:
 			return state

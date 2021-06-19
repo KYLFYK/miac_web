@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import MenuContainer from "./menu/MenuContainer"
 import HomeContainer from "../components/home/HomeContainer"
 import PacientsContainer from "../components/pacients/PacientsContainer"
+import ProfileContainer from "../components/profile/ProfileContainer"
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
             </aside>
             <div className={styles.content}>
                 <Route exact path={['/home', '/']} render={() => <HomeContainer />} />
-                <Route path={'/pacients'} render={() => <PacientsContainer />} />
+                <Route exact path={'/pacients'} render={() => <PacientsContainer />} />
+                <Route path={'/pacients/profile/'} render={() => <ProfileContainer />}  />
             </div>
         </div>
       </BrowserRouter>
