@@ -1,12 +1,17 @@
-import globalStyles from '../../global/App.module.scss'
+import React from "react"
 
+import globalStyles from '../../global/App.module.scss'
 import styles from './Pacients.module.scss'
 
 import { NavLink } from "react-router-dom"
 import { HomeOutlined } from "@ant-design/icons"
-import React from "react"
+import { Button } from "antd"
 
-const Pacients = () => {
+const Pacients = (props) => {
+	let onSearch = (e) => {
+		props.setSearchText(e.target.value)
+	}
+	
 	return (
 		<>
 			<div className={globalStyles.crumbs}>
@@ -24,6 +29,16 @@ const Pacients = () => {
 						Пациенты
 					</span>
 				</NavLink>
+			</div>
+			<div className={styles.searchField}>
+				<input placeholder="Поиск" type="text" onChange={(e) => onSearch(e)} value={props.searchFiledText} />
+			</div>
+			<div className={styles.filter}>
+				<div className={styles.filterBtns}>
+					<Button type="primary">Все пациенты</Button>
+					<Button>Тяжелое состояние</Button>
+					<Button>Прием в ближайшее время</Button>
+				</div>
 			</div>
 		</>
 	)

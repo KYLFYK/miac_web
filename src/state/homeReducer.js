@@ -46,25 +46,49 @@ let initialState = {
 			userId: '0123456789',
 			userName: 'Иванов Иван',
 			userBigPhoto: bigPhoto,
-			time: '11:30'
+			time: 'Прием в 11:30',
+			anamez: 'Гипертония 1 степени',
+			birthday: '12.05.1974',
+			age: '47 лет',
+			phoneNumber: '+7 (123) 456 78-90',
+			phoneLink: '+791234567890',
+			email: 'ivanov@mail.ru'
 		},
 		{
 			userId: '0123456780',
 			userName: 'Рознев Владимир',
 			userBigPhoto: bigPhoto,
-			time: '12:00'
+			time: 'Прием в 12:00',
+			anamez: 'Гипертония 1 степени',
+			birthday: '12.05.1974',
+			age: '47 лет',
+			phoneNumber: '+7 (123) 456 78-90',
+			phoneLink: '+791234567890',
+			email: 'roznev@mail.ru'
 		},
 		{
 			userId: '0123456781',
 			userName: 'Плотников Илья',
 			userBigPhoto: bigPhoto,
-			time: '12:30'
+			time: 'Прием в 12:30',
+			anamez: 'Гипертония 1 степени',
+			birthday: '12.05.1974',
+			age: '47 лет',
+			phoneNumber: '+7 (123) 456 78-90',
+			phoneLink: '+791234567890',
+			email: 'plotnikov@mail.ru'
 		},
 		{
 			userId: '0123456782',
 			userName: 'Чернов Алексей',
 			userBigPhoto: bigPhoto,
-			time: '13:00'
+			time: 'Прием в 13:00',
+			anamez: 'Гипертония 1 степени',
+			birthday: '12.05.1974',
+			age: '47 лет',
+			phoneNumber: '+7 (123) 456 78-90',
+			phoneLink: '+791234567890',
+			email: 'chernov@mail.ru'
 		}
 	]
 }

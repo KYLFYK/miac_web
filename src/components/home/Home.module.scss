@@ -132,6 +132,15 @@
 			}
 		}
 		
+		.anamez {
+			@include text-12-bold;
+			
+			position: absolute;
+			top: 34px;
+			right: 20px;
+			color: white;
+		}
+		
 		.content {
 			position: absolute;
 			top: 0;
@@ -147,6 +156,27 @@
 			.contentText {
 				display: flex;
 				flex-direction: column;
+				
+				.contentTextItem {
+					display: flex;
+					flex-direction: column;
+					margin-bottom: 14px;
+				}
+				
+				.contentTextItemFl {
+					display: flex;
+					gap: 8px;
+				}
+				
+				.contentLinks {
+					display: flex;
+					gap: 8px;
+					margin-top: 14px;
+					
+					a {
+						font-size: 12px !important;
+					}
+				}
 			}
 			
 			.sliderName {

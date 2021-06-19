@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 
 import Pacients from "./Pacients"
-import { selectMenu } from "../../state/menuReducer"
+
+import { setSearchText } from "../../state/pacientsReducer"
 
 let mapStateToProps = (state) => {
 	return {
-	
+		searchFiledText: state.pacients.searchFiledText
 	}
 }
 
 export default connect(mapStateToProps, {
-	selectMenu,
+	setSearchText,
 })(Pacients)

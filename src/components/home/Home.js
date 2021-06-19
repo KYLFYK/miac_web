@@ -5,7 +5,7 @@ import styles from './Home.module.scss'
 import { ExclamationOutlined, RightOutlined, HomeOutlined } from "@ant-design/icons"
 
 import User from '../../global/user/User'
-import { Button, Carousel, Progress, Card, Breadcrumb } from "antd"
+import { Button, Carousel, Progress, Card } from "antd"
 import { NavLink } from "react-router-dom"
 import globalStyles from "../../global/App.module.scss"
 
@@ -83,18 +83,47 @@ const Slider = (props) => {
 								</div>
 								<div className={styles.content}>
 									<div className={styles.contentText}>
-										<span className={styles.sliderName}>
-											{ item.userName }
-										</span>
-										<span className={styles.sliderDate}>
-											{ item.time }
-										</span>
+										<div className={styles.contentTextItem}>
+											<span className={styles.sliderName}>
+												{ item.userName }
+											</span>
+											<span className={styles.sliderDate}>
+												{ item.time }
+											</span>
+										</div>
+										<div className={styles.contentTextItemFl}>
+											<span className={styles.sliderName}>
+												Снилс
+											</span>
+											<span className={styles.sliderDate}>
+												{ item.userId }
+											</span>
+										</div>
+										<div className={styles.contentTextItemFl}>
+											<span className={styles.sliderName}>
+												{ item.birthday }
+											</span>
+											<span className={styles.sliderDate}>
+												{ item.age }
+											</span>
+										</div>
+										<div className={styles.contentLinks}>
+											<a href={`tel:${item.phoneLink}`} className={styles.sliderName}>
+												{ item.phoneNumber }
+											</a>
+											<a href={`mailto:${item.email}`} className={styles.sliderName}>
+												{ item.email }
+											</a>
+										</div>
 									</div>
 									<NavLink to={`/pacients/${item.userId}`}>
 										<Button type="primary" icon={<RightOutlined />}>
 											Перейти
 										</Button>
 									</NavLink>
+								</div>
+								<div className={styles.anamez}>
+									{ item.anamez }
 								</div>
 							</div>
 						</div>
