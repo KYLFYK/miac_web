@@ -1,1 +1,30 @@
 @import './src/global/_variables';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
+	
+	.chartWrapper {
+		margin-left: -30px;
+		
+		.chartTitle {
+			margin-bottom: 16px;
+			padding-left: 30px;
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			
+			.text {
+				@include text-22-b;
+			}
+		}
+		
+		.chartBtns {
+			display: flex;
+			gap: 14px;
+			padding-left: 30px;
+			margin-top: 20px;
+		}
+	}
+}

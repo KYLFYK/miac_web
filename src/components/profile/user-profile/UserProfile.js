@@ -3,8 +3,8 @@ import styles from './UserProfile.module.scss'
 import image from '../../../assets/user-pacient.jpg'
 
 import { NavLink } from "react-router-dom"
-import { MessageOutlined, EditOutlined, CaretUpOutlined } from '@ant-design/icons'
-import { Affix, Badge, Button, Descriptions, Statistic } from 'antd'
+import { MessageOutlined, EditOutlined, CaretUpOutlined, QuestionCircleOutlined } from '@ant-design/icons'
+import { Affix, Badge, Button, Descriptions, message, Popconfirm, Statistic } from 'antd'
 import React from "react"
 
 import ModalTest from "./modals/ModalTest"
@@ -23,6 +23,10 @@ const Better = () => {
 }
 
 const UserProfile = () => {
+	const warning = () => {
+		message.warning('Реализация запланирована на будущее');
+	};
+	
 	const [visibleTest, setVisibleTest] = React.useState(false);
 	const [visibleReccomend, setVisibleReccomend] = React.useState(false);
 	const [visibleWrite, setVisibleWrite] = React.useState(false);
@@ -55,12 +59,12 @@ const UserProfile = () => {
 						</span>
 					</div>
 					<div className={styles.links}>
-						<NavLink className={styles.link} to={'/edit'}>
+						<div onClick={warning} className={styles.link}>
 							<MessageOutlined className={styles.svg} />
-						</NavLink>
-						<NavLink className={styles.link} to={'/edit'}>
+						</div>
+						<div onClick={warning} className={styles.link}>
 							<EditOutlined className={styles.svg} />
-						</NavLink>
+						</div>
 					</div>
 				</div>
 				<div className={styles.stats}>
@@ -123,9 +127,17 @@ const UserProfile = () => {
 						</Button>
 					</div>
 					<div className={styles.buttonsCol}>
-						<Button type="primary" danger>
-							Удалить пациента
-						</Button>
+						<Popconfirm title="Вы уверены, что хотите удалить профиль пациента?"
+						            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+						            cancelText="Отменить"
+						            cancelButtonProps={{type: 'primary'}}
+						            okText="Да, удалить"
+						            okType={['danger']}
+						>
+							<Button type="primary" danger>
+								Удалить пациента
+							</Button>
+						</Popconfirm>
 					</div>
 				</div>
 			</Affix>

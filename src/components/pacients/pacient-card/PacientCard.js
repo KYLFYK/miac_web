@@ -4,8 +4,13 @@ import { NavLink } from "react-router-dom"
 import { UserOutlined, MessageOutlined, EditOutlined } from "@ant-design/icons"
 
 import styles from '../Pacients.module.scss'
+import { message } from "antd"
 
 const PacientCard = (props) => {
+	const warning = () => {
+		message.warning('Реализация запланирована на будущее');
+	};
+	
 	return (
 		<div className={`${styles.pacient} ${props.currentFeel === 'bad' ? styles.mark : ''}`}>
 			<div className={styles.userContainer}>
@@ -49,12 +54,12 @@ const PacientCard = (props) => {
 				<NavLink className={styles.link} to={`/pacients/profile/${props.userId}`}>
 					<UserOutlined className={styles.svg} />
 				</NavLink>
-				<NavLink className={styles.link} to={`/pacients/profile/${props.userId}`}>
+				<div className={styles.link} onClick={warning}>
 					<MessageOutlined className={styles.svg} />
-				</NavLink>
-				<NavLink className={styles.link} to={`/pacients/profile/${props.userId}`}>
+				</div>
+				<div className={styles.link} onClick={warning}>
 					<EditOutlined className={styles.svg} />
-				</NavLink>
+				</div>
 			</div>
 		</div>
 	)
