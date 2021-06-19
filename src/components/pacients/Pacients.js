@@ -46,7 +46,7 @@ const Pacients = (props) => {
 				{
 					props.pacientsList.map(item => {
 						return (
-							<PacientCard { ...item } />
+							<PacientCard key={item.userId} { ...item } />
 						)
 					})
 				}

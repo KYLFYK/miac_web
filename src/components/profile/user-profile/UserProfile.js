@@ -4,7 +4,7 @@ import image from '../../../assets/user-pacient.jpg'
 
 import { NavLink } from "react-router-dom"
 import { MessageOutlined, EditOutlined, CaretUpOutlined } from '@ant-design/icons'
-import { Affix, Badge, Button, Descriptions, Form, Statistic } from 'antd'
+import { Affix, Badge, Button, Descriptions, Statistic } from 'antd'
 import React from "react"
 
 import ModalTest from "./modals/ModalTest"

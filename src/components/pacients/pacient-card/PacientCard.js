@@ -7,7 +7,7 @@ import styles from '../Pacients.module.scss'
 
 const PacientCard = (props) => {
 	return (
-		<div className={`${styles.pacient} ${props.currentFeel === 'bad' ? styles.mark : ''}`} key={props.userId}>
+		<div className={`${styles.pacient} ${props.currentFeel === 'bad' ? styles.mark : ''}`}>
 			<div className={styles.userContainer}>
 				<User link={`/pacients/profile/${props.userId}`} imgUrl={props.userImage} name={props.userName} addText={props.userId}  />
 			</div>

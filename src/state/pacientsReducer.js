@@ -30,7 +30,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '0123456780',
+			userId: '01234567802',
 			userName: 'Рознев Владимир',
 			userImage: image,
 			nextSurvey: '03.08.2021 12:10',
@@ -40,7 +40,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '01234567890',
+			userId: '012345678901',
 			userName: 'Иванов Иван',
 			userImage: image,
 			nextSurvey: '02.08.2021 13:00',
@@ -50,7 +50,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '01234567890',
+			userId: '012345678903',
 			userName: 'Иванов Иван',
 			userImage: image,
 			nextSurvey: '02.08.2021 13:00',
@@ -60,7 +60,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '01234567890',
+			userId: '012345678904',
 			userName: 'Иванов Иван',
 			userImage: image,
 			nextSurvey: '02.08.2021 13:00',
@@ -70,7 +70,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '01234567890',
+			userId: '012345678905',
 			userName: 'Иванов Иван',
 			userImage: image,
 			nextSurvey: '02.08.2021 13:00',
@@ -80,7 +80,7 @@ let initialState = {
 			pressure: '142 / 94'
 		},
 		{
-			userId: '01234567890',
+			userId: '012345678906',
 			userName: 'Иванов Иван',
 			userImage: image,
 			nextSurvey: '02.08.2021 13:00',
