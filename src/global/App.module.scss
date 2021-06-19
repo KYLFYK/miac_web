@@ -8,6 +8,7 @@
 	.aside {
 		height: 100%;
 		width: 330px;
+		min-width: 330px;
 		background-color: $c-dark;
 		color: $c-white;
 	}
@@ -15,5 +16,30 @@
 	.content {
 		padding: 64px 50px;
 		flex: 1;
+	}
+}
+
+.crumbs {
+	display: flex;
+	align-items: center;
+	
+	.crumbItem {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: $c-dark;
+		
+		&:not(:last-of-type) {
+			opacity: 45%;
+		}
+	}
+	
+	.crumbText {
+		@include text-16-reg;
+	}
+	
+	.crumbSeparator {
+		opacity: 45%;
+		margin: 0 8px;
 	}
 }

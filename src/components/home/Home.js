@@ -7,6 +7,7 @@ import { ExclamationOutlined, RightOutlined, HomeOutlined } from "@ant-design/ic
 import User from '../../global/user/User'
 import { Button, Carousel, Progress, Card, Breadcrumb } from "antd"
 import { NavLink } from "react-router-dom"
+import globalStyles from "../../global/App.module.scss"
 
 const colors = {
 	violet: '#9254DE',
@@ -107,11 +108,14 @@ const Slider = (props) => {
 const Home = (props) => {
 	return (
 		<>
-			<Breadcrumb>
-				<Breadcrumb.Item href="/">
-					<HomeOutlined />
-				</Breadcrumb.Item>
-			</Breadcrumb>
+			<div className={globalStyles.crumbs}>
+				<NavLink className={globalStyles.crumbItem} exact to="/">
+					<HomeOutlined size={16} />
+					<span className={globalStyles.crumbText}>
+						Главная
+					</span>
+				</NavLink>
+			</div>
 			<div className={styles.wrapper}>
 				{ <AlertWrapper alertUsers={props.alertUsers} haveAlerts={props.haveAlert} /> }
 				<div className={styles.widgets}>
