@@ -7,7 +7,7 @@ import React from "react"
 import { Menu } from "antd"
 
 import UserProfile from "./user-profile/UserProfile"
-import Calendar from "./calendar/Calendar"
+import CalendarPage from "./calendar/CalendarPage"
 import Health from "./health/Health"
 import History from "./history/History"
 import Recommendations from "./recommendations/Recommendations"
@@ -73,7 +73,7 @@ const Profile = (props) => {
 			</div>
 			<div>
 				<Route exact path={'/pacients/profile/0123456780'} render={() => <UserProfile />} />
-				<Route exact path={'/pacients/profile/0123456780/calendar'} render={() => <Calendar />} />
+				<Route exact path={'/pacients/profile/0123456780/calendar'} render={() => <CalendarPage />} />
 				<Route exact path={'/pacients/profile/0123456780/health'} render={() => <Health />} />
 				<Route exact path={'/pacients/profile/0123456780/history'} render={() => <History />} />
 				<Route exact path={'/pacients/profile/0123456780/recommendations'} render={() => <Recommendations />} />
