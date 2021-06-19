@@ -2,10 +2,10 @@ import React from "react"
 
 import styles from './Home.module.scss'
 
-import { ExclamationOutlined, RightOutlined } from "@ant-design/icons"
+import { ExclamationOutlined, RightOutlined, HomeOutlined } from "@ant-design/icons"
 
 import User from '../../global/user/User'
-import { Button, Carousel, Progress, Card } from "antd"
+import { Button, Carousel, Progress, Card, Breadcrumb } from "antd"
 import { NavLink } from "react-router-dom"
 
 const colors = {
@@ -106,81 +106,88 @@ const Slider = (props) => {
 
 const Home = (props) => {
 	return (
-		<div className={styles.wrapper}>
-			{ <AlertWrapper alertUsers={props.alertUsers} haveAlerts={props.haveAlert} /> }
-			<div className={styles.widgets}>
-				<div className={styles.widget}>
-					<span className={styles.widgetTitle}>
-						Ближайшие обследования
-					</span>
-					<div className={styles.slider}>
-						<Slider todayList={props.todayList} />
-					</div>
-				</div>
-				<div className={styles.widget}>
-					<span className={styles.widgetTitle}>
-						Состояние пациентов
-					</span>
-					<div className={styles.progress}>
-						<div className={styles.bar}>
-							<span className={styles.berText}>
-								Общяя добросовестность
-							</span>
-							<Progress strokeColor={colors.violet} percent={props.stats.conscientiousness} status="active" />
-						</div>
-						<div className={styles.bar}>
-							<span className={styles.berText}>
-								Состояние стало лучше
-							</span>
-							<Progress strokeColor={colors.green} percent={props.stats.better} status="active" />
-						</div>
-						<div className={styles.bar}>
-							<span className={styles.berText}>
-								Состояние ухудшилось
-							</span>
-							<Progress strokeColor={colors.red} percent={props.stats.bad} status="active" />
+		<>
+			<Breadcrumb>
+				<Breadcrumb.Item href="/">
+					<HomeOutlined />
+				</Breadcrumb.Item>
+			</Breadcrumb>
+			<div className={styles.wrapper}>
+				{ <AlertWrapper alertUsers={props.alertUsers} haveAlerts={props.haveAlert} /> }
+				<div className={styles.widgets}>
+					<div className={styles.widget}>
+						<span className={styles.widgetTitle}>
+							Ближайшие обследования
+						</span>
+						<div className={styles.slider}>
+							<Slider todayList={props.todayList} />
 						</div>
 					</div>
-				</div>
-				<div className={styles.widget}>
-					<span className={styles.widgetTitle}>
-						Последние показания
-					</span>
-					<div className={styles.widgetCard}>
-						<Card size="small" title={props.lastSurvey.userName} extra={<NavLink to={`/pacients/${props.lastSurvey.userId}`}>Подробнее</NavLink>} style={{ width: 300 }}>
-							<p className={styles.cardItem}>
-								<span className={styles.cardText}>
-									Пульс
+					<div className={styles.widget}>
+						<span className={styles.widgetTitle}>
+							Состояние пациентов
+						</span>
+						<div className={styles.progress}>
+							<div className={styles.bar}>
+								<span className={styles.berText}>
+									Общяя добросовестность
 								</span>
-								<span className={`${styles.cardValue} ${styles.green}`}>
-									{props.lastSurvey.pulse}
+								<Progress strokeColor={colors.violet} percent={props.stats.conscientiousness} status="active" />
+							</div>
+							<div className={styles.bar}>
+								<span className={styles.berText}>
+									Состояние стало лучше
 								</span>
-							</p>
-							<p className={styles.cardItem}>
-								<span className={styles.cardText}>
-									Давление
+								<Progress strokeColor={colors.green} percent={props.stats.better} status="active" />
+							</div>
+							<div className={styles.bar}>
+								<span className={styles.berText}>
+									Состояние ухудшилось
 								</span>
-								<span className={`${styles.cardValue} ${styles.dark}`}>
-									{props.lastSurvey.pressure[0]}
-									<span className={styles.cardsepareator}>
-										/
+								<Progress strokeColor={colors.red} percent={props.stats.bad} status="active" />
+							</div>
+						</div>
+					</div>
+					<div className={styles.widget}>
+						<span className={styles.widgetTitle}>
+							Последние показания
+						</span>
+						<div className={styles.widgetCard}>
+							<Card size="small" title={props.lastSurvey.userName} extra={<NavLink to={`/pacients/${props.lastSurvey.userId}`}>Подробнее</NavLink>} style={{ width: 300 }}>
+								<p className={styles.cardItem}>
+									<span className={styles.cardText}>
+										Пульс
 									</span>
-									{props.lastSurvey.pressure[1]}
-								</span>
-							</p>
-							<p className={styles.cardItem}>
-								<span className={styles.cardText}>
-									Уровень стресса
-								</span>
-								<span className={`${styles.cardImage} ${styles.violet}`}>
-								
-								</span>
-							</p>
-						</Card>
+									<span className={`${styles.cardValue} ${styles.green}`}>
+										{props.lastSurvey.pulse}
+									</span>
+								</p>
+								<p className={styles.cardItem}>
+									<span className={styles.cardText}>
+										Давление
+									</span>
+									<span className={`${styles.cardValue} ${styles.dark}`}>
+										{props.lastSurvey.pressure[0]}
+										<span className={styles.cardsepareator}>
+											/
+										</span>
+										{props.lastSurvey.pressure[1]}
+									</span>
+								</p>
+								<p className={styles.cardItem}>
+									<span className={styles.cardText}>
+										Уровень стресса
+									</span>
+									<span className={`${styles.cardImage} ${styles.violet}`}>
+									
+									</span>
+								</p>
+							</Card>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
