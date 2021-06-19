@@ -6,6 +6,7 @@ import { Breadcrumb } from "antd"
 
 import MenuContainer from "./menu/MenuContainer"
 import HomeContainer from "../components/home/HomeContainer"
+import PacientsContainer from "../components/pacients/PacientsContainer"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             </aside>
             <div className={styles.content}>
                 <Route exact path={['/home', '/']} render={() => <HomeContainer />} />
+                <Route path={'/pacients'} render={() => <PacientsContainer />} />
             </div>
         </div>
       </BrowserRouter>

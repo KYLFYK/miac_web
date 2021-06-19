@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 
 import Home from "./Home"
-import { selectMenu } from "../../state/menuReducer"
 
 let mapStateToProps = (state) => {
 	return {
@@ -13,6 +12,4 @@ let mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {
-	selectMenu,
-})(Home)
+export default connect(mapStateToProps, {})(Home)
