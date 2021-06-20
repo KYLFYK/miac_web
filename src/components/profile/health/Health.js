@@ -2,9 +2,15 @@ import styles from './Health.module.scss'
 
 import { CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis, LineChart, Tooltip, Line } from "recharts"
 import { Alert, Button, message } from "antd"
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons"
+import { DownloadOutlined, PrinterOutlined, FormOutlined } from "@ant-design/icons"
+import React from "react"
+
+import ModalTest from '../user-profile/modals/ModalTest'
 
 const Health = () => {
+	const [visibleTest, setVisibleTest] = React.useState(false);
+	const [defaultActiveOption, setDefaultOption] =  React.useState('');
+	
 	const data1 = [
 		{
 			name: '01.06',
@@ -53,43 +59,48 @@ const Health = () => {
 	const dataPulse = [
 		{
 			name: '01.06',
-			['Пульс']: 148,
+			['Пульс']: 128,
 			amt: 2400,
 		},
 		{
 			name: '02.06',
-			['Пульс']: 141,
+			['Пульс']: 121,
 			amt: 2210,
 		},
 		{
 			name: '03.06',
-			['Пульс']: 137,
+			['Пульс']: 117,
 			amt: 2290,
 		},
 		{
 			name: '04.06',
-			['Пульс']: 132,
+			['Пульс']: 112,
 			amt: 2000,
 		},
 		{
 			name: '05.06',
-			['Пульс']: 121,
+			['Пульс']: 101,
 			amt: 2181,
 		},
 		{
 			name: '06.06',
-			['Пульс']: 127,
+			['Пульс']: 107,
 			amt: 2500,
 		},
 		{
 			name: '07.06',
-			['Пульс']: 130,
+			['Пульс']: 110,
 			amt: 2100,
 		},
 	]
 	
 	const warning = () => {
 		message.warning('Реализация запланирована на будущее');
+	};
+	
+	const showModalTest = (text) => {
+		setDefaultOption(text)
+		setVisibleTest(true);
 	};
 	
 	return (
@@ -112,10 +123,13 @@ const Health = () => {
 					</LineChart>
 				</ResponsiveContainer>
 				<div className={styles.chartBtns}>
+					<Button onClick={() => showModalTest('pressure')} className={styles.mainBtn} type="primary" icon={<FormOutlined />}>
+						Запросить показания
+					</Button>
 					<Button onClick={warning} icon={<DownloadOutlined />}>
 						Загрузить PDF
 					</Button>
-					<Button onClick={warning} icon={<PrinterOutlined />} type="primary">
+					<Button onClick={warning} icon={<PrinterOutlined />}>
 						Распечатать
 					</Button>
 				</div>
@@ -138,14 +152,18 @@ const Health = () => {
 					</LineChart>
 				</ResponsiveContainer>
 				<div className={styles.chartBtns}>
+					<Button onClick={() => showModalTest('pulse')} className={styles.mainBtn} type="primary" icon={<FormOutlined />}>
+						Запросить показания
+					</Button>
 					<Button onClick={warning} icon={<DownloadOutlined />}>
 						Загрузить PDF
 					</Button>
-					<Button onClick={warning} icon={<PrinterOutlined />} type="primary">
+					<Button onClick={warning} icon={<PrinterOutlined />}>
 						Распечатать
 					</Button>
 				</div>
 			</div>
+			<ModalTest defaultActiveFirstOption={defaultActiveOption} setVisible={setVisibleTest} visible={visibleTest} />
 		</div>
 	)
 }

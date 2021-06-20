@@ -1,4 +1,4 @@
-import { DatePicker, Form, Input, Switch } from "antd"
+import { DatePicker, Form, Input, message, Switch } from "antd"
 import TextArea from "antd/es/input/TextArea"
 import Modal from "antd/es/modal/Modal"
 import React from "react"
@@ -11,9 +11,11 @@ const ModalWrite = (props) => {
 	let handleOk = () => {
 		setModalText('The modal will be closed after two seconds');
 		setConfirmLoading(true);
+		form.submit();
 		
 		setTimeout(() => {
 			props.setVisible(false);
+			message.success( 'Пациент записан на прием' )
 			setConfirmLoading(false);
 		}, 2000);
 	};
@@ -25,9 +27,9 @@ const ModalWrite = (props) => {
 	
 	return (
 		<Modal okText="Записать на прием" cancelText="Закрыть"
-		       centered title="Записать на прием" onOk={form.submit}
+		       centered title="Записать на прием" onOk={handleOk}
 		       onCancel={handleCancel} confirmLoading={confirmLoading}
-		       visible={props.visible} onFormFinish={handleOk}
+		       visible={props.visible}
 		>
 			<Form
 				labelCol={{ span: 24 }}

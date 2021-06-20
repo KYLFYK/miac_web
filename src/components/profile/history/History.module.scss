@@ -1,1 +1,11 @@
 @import './src/global/_variables';
+
+.accord {
+	margin-bottom: 40px;
+	
+	.accordContent {
+		display: flex;
+		align-items: center;
+		gap: 34px;
+	}
+}

@@ -45,7 +45,7 @@ const Profile = (props) => {
 			<div className={styles.tabs}>
 				<Menu onClick={(e) => handleClick(e.key)} selectedKeys={props.currentPage} mode="horizontal">
 					<Menu.Item key="info" icon={ <UserOutlined /> }>
-						<NavLink to={'/pacients/profile/0123456780'}>
+						<NavLink exact to={'/pacients/profile/0123456780'}>
 							Информация
 						</NavLink>
 					</Menu.Item>

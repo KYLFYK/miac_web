@@ -1,20 +1,21 @@
-import { Form, Input, Switch } from "antd"
+import { Form, Input, message, Switch } from "antd"
 import TextArea from "antd/es/input/TextArea"
 import Modal from "antd/es/modal/Modal"
 import React from "react"
 
 const ModalReccomend = (props) => {
 	const [confirmLoading, setConfirmLoading] = React.useState(false);
-	const [modalText, setModalText] = React.useState('');
+	const [modalText] = React.useState('');
 	const [form] = Form.useForm();
 	
 	const handleOk = () => {
-		setModalText('The modal will be closed after two seconds');
 		setConfirmLoading(true);
+		form.submit()
 		
 		setTimeout(() => {
 			props.setVisible(false);
 			setConfirmLoading(false);
+			message.success( 'Рекомендации отправлены' )
 		}, 2000);
 	};
 	
@@ -25,9 +26,9 @@ const ModalReccomend = (props) => {
 	
 	return (
 		<Modal okText="Добавить" cancelText="Закрыть"
-		       centered title="Добавить рекомендацию" onOk={form.submit}
+		       centered title="Добавить рекомендацию" onOk={handleOk}
 		       onCancel={handleCancel} confirmLoading={confirmLoading}
-		       visible={props.visible} onFormFinish={handleOk}
+		       visible={props.visible}
 		>
 			<Form
 				labelCol={{ span: 24 }}

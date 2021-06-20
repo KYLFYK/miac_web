@@ -2,7 +2,7 @@ import React from "react"
 
 import styles from './Home.module.scss'
 
-import { ExclamationOutlined, RightOutlined, HomeOutlined } from "@ant-design/icons"
+import { ExclamationOutlined, UserOutlined, HomeOutlined } from "@ant-design/icons"
 
 import User from '../../global/user/User'
 import { Button, Carousel, Progress, Card } from "antd"
@@ -58,7 +58,7 @@ const AlertWrapper = (props) => {
 								</div>
 							</div>
 							<NavLink to={`/pacients/profile/${item.userId}`} className={styles.button}>
-								<Button type='primary'>Перейти в профиль</Button>
+								<Button type='primary' icon={<UserOutlined />}>Перейти в профиль</Button>
 							</NavLink>
 						</div>
 					)
@@ -117,7 +117,7 @@ const Slider = (props) => {
 										</div>
 									</div>
 									<NavLink to={`/pacients/profile/${item.userId}`}>
-										<Button type="primary" icon={<RightOutlined />}>
+										<Button type="primary" icon={<UserOutlined />}>
 											Перейти
 										</Button>
 									</NavLink>

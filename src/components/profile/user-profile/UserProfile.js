@@ -2,8 +2,16 @@ import styles from './UserProfile.module.scss'
 
 import image from '../../../assets/user-pacient.jpg'
 
-import { NavLink } from "react-router-dom"
-import { MessageOutlined, EditOutlined, CaretUpOutlined, QuestionCircleOutlined } from '@ant-design/icons'
+import {
+	MessageOutlined,
+	EditOutlined,
+	CaretUpOutlined,
+	QuestionCircleOutlined,
+	PlusCircleOutlined,
+	FileDoneOutlined,
+	FormOutlined,
+	UserDeleteOutlined
+} from '@ant-design/icons'
 import { Affix, Badge, Button, Descriptions, message, Popconfirm, Statistic } from 'antd'
 import React from "react"
 
@@ -116,13 +124,13 @@ const UserProfile = () => {
 			<Affix offsetBottom={30}>
 				<div className={styles.buttons}>
 					<div className={styles.buttonsCol}>
-						<Button type='primary' onClick={showModalTest}>
+						<Button type='primary' onClick={showModalTest} icon={<FormOutlined />}>
 							Запросить показания
 						</Button>
-						<Button onClick={showModalRecommend}>
+						<Button onClick={showModalRecommend} icon={<PlusCircleOutlined />}>
 							Добавить рекомендацию
 						</Button>
-						<Button onClick={showModalWrite}>
+						<Button onClick={showModalWrite} icon={<FileDoneOutlined />}>
 							Записать на приём
 						</Button>
 					</div>
@@ -134,7 +142,7 @@ const UserProfile = () => {
 						            okText="Да, удалить"
 						            okType={['danger']}
 						>
-							<Button type="primary" danger>
+							<Button type="primary" danger icon={<UserDeleteOutlined />}>
 								Удалить пациента
 							</Button>
 						</Popconfirm>
