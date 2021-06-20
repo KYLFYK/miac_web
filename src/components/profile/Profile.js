@@ -19,7 +19,7 @@ const Profile = (props) => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={globalStyles.crumbs}>
-				<NavLink className={globalStyles.crumbItem} exact to="/">
+				<NavLink className={globalStyles.crumbItem} exact to="/miac_web_cite">
 					<HomeOutlined size={16} />
 					<span className={globalStyles.crumbText}>
 						Главная
@@ -28,7 +28,7 @@ const Profile = (props) => {
 				<span className={globalStyles.crumbSeparator}>
 					/
 				</span>
-				<NavLink className={globalStyles.crumbItem} to="/pacients">
+				<NavLink className={globalStyles.crumbItem} to="/miac_web_cite/pacients">
 					<span className={globalStyles.crumbText}>
 						Пациенты
 					</span>
@@ -36,7 +36,7 @@ const Profile = (props) => {
 				<span className={globalStyles.crumbSeparator}>
 					/
 				</span>
-				<NavLink className={globalStyles.crumbItem} to="/pacients/profile/012301248">
+				<NavLink className={globalStyles.crumbItem} to="/miac_web_cite/pacients/profile/012301248">
 					<span className={globalStyles.crumbText}>
 						{props.userInfo.fio}
 					</span>
@@ -45,38 +45,38 @@ const Profile = (props) => {
 			<div className={styles.tabs}>
 				<Menu onClick={(e) => handleClick(e.key)} selectedKeys={props.currentPage} mode="horizontal">
 					<Menu.Item key="info" icon={ <UserOutlined /> }>
-						<NavLink to={`/pacients/profile/${props.userInfo.id}`}>
+						<NavLink to={`/miac_web_cite/pacients/profile/${props.userInfo.id}`}>
 							Информация
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="calendar" icon={ <CalendarOutlined /> }>
-						<NavLink to={`/pacients/profile/${props.userInfo.id}/calendar`}>
+						<NavLink to={`/miac_web_cite/pacients/profile/${props.userInfo.id}/calendar`}>
 							Расписание
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="health" icon={ <UnorderedListOutlined /> }>
-						<NavLink to={`/pacients/profile/${props.userInfo.id}/health`}>
+						<NavLink to={`/miac_web_cite/pacients/profile/${props.userInfo.id}/health`}>
 							Показания
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="history" icon={ <HistoryOutlined />}>
-						<NavLink to={`/pacients/profile/${props.userInfo.id}/history`}>
+						<NavLink to={`/miac_web_cite/pacients/profile/${props.userInfo.id}/history`}>
 							История
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="recommendations" icon={ <LikeOutlined /> }>
-						<NavLink to={`/pacients/profile/${props.userInfo.id}/recommendations`}>
+						<NavLink to={`/miac_web_cite/pacients/profile/${props.userInfo.id}/recommendations`}>
 							Рекомендации
 						</NavLink>
 					</Menu.Item>
 				</Menu>
 			</div>
 			<div>
-				<Route exact path={'/pacients/profile/:userId'} render={() => <UserProfileContainer userInfo={props.userInfo} />} />
-				<Route exact path={'/pacients/profile/:userId/calendar'} render={() => <CalendarPage />} />
-				<Route exact path={'/pacients/profile/:userId/health'} render={() => <HealthContainer userHealth={props.userHealth} />} />
-				<Route exact path={'/pacients/profile/:userId/history'} render={() => <History />} />
-				<Route exact path={'/pacients/profile/:userId/recommendations'} render={() => <RecommendationsContainer />} />
+				<Route exact path={'/miac_web_cite/pacients/profile/:userId'} render={() => <UserProfileContainer userInfo={props.userInfo} />} />
+				<Route exact path={'/miac_web_cite/pacients/profile/:userId/calendar'} render={() => <CalendarPage />} />
+				<Route exact path={'/miac_web_cite/pacients/profile/:userId/health'} render={() => <HealthContainer userHealth={props.userHealth} />} />
+				<Route exact path={'/miac_web_cite/pacients/profile/:userId/history'} render={() => <History />} />
+				<Route exact path={'/miac_web_cite/pacients/profile/:userId/recommendations'} render={() => <RecommendationsContainer />} />
 			</div>
 		</div>
 	)

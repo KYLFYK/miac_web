@@ -17,7 +17,7 @@ const Survey = () => {
 	return (
 		<div>
 			<div className={globalStyles.crumbs}>
-				<NavLink className={globalStyles.crumbItem} exact to="/">
+				<NavLink className={globalStyles.crumbItem} exact to="/miac_web_cite">
 					<HomeOutlined size={16} />
 					<span className={globalStyles.crumbText}>
 						Главная
@@ -26,7 +26,7 @@ const Survey = () => {
 				<span className={globalStyles.crumbSeparator}>
 					/
 				</span>
-				<NavLink className={globalStyles.crumbItem} to="/survey">
+				<NavLink className={globalStyles.crumbItem} to="/miac_web_cite/survey">
 					<span className={globalStyles.crumbText}>
 						Приемы
 					</span>

@@ -14,7 +14,7 @@ const PacientCard = (props) => {
 	return (
 		<div className={`${styles.pacient} ${props.currentFeel === 'bad' ? styles.mark : ''}`}>
 			<div className={styles.userContainer}>
-				<User link={`/pacients/profile/${props.userId}`} imgUrl={props.userImage} name={props.userName} addText={props.userId}  />
+				<User link={`/miac_web_cite/pacients/profile/${props.userId}`} imgUrl={props.userImage} name={props.userName} addText={props.userId}  />
 			</div>
 			<div className={styles.pacientKeys}>
 				<div className={styles.pacientKey}>
@@ -51,7 +51,7 @@ const PacientCard = (props) => {
 				</div>
 			</div>
 			<div className={styles.links}>
-				<NavLink className={styles.link} to={`/pacients/profile/${props.userId}`}>
+				<NavLink className={styles.link} to={`/miac_web_cite/pacients/profile/${props.userId}`}>
 					<UserOutlined className={styles.svg} />
 				</NavLink>
 				<div className={styles.link} onClick={warning}>

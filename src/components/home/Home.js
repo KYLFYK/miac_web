@@ -29,7 +29,7 @@ const AlertWrapper = (props) => {
 								{ item.userAlertText }
 							</p>
 							<div className={styles.userContainer}>
-								<User name={item.userName} addText={item.userId} imgUrl={item.userImage} link={`/pacients/profile/${item.userId}`} />
+								<User name={item.userName} addText={item.userId} imgUrl={item.userImage} link={`/miac_web_cite/pacients/profile/${item.userId}`} />
 							</div>
 							<div className={styles.info}>
 								<div className={styles.infoItem}>
@@ -57,7 +57,7 @@ const AlertWrapper = (props) => {
 									</span>
 								</div>
 							</div>
-							<NavLink to={`/pacients/profile/${item.userId}`} className={styles.button}>
+							<NavLink to={`/miac_web_cite/pacients/profile/${item.userId}`} className={styles.button}>
 								<Button type='primary' icon={<UserOutlined />}>Перейти в профиль</Button>
 							</NavLink>
 						</div>
@@ -116,7 +116,7 @@ const Slider = (props) => {
 											</a>
 										</div>
 									</div>
-									<NavLink to={`/pacients/profile/${item.userId}`}>
+									<NavLink to={`/miac_web_cite/pacients/profile/${item.userId}`}>
 										<Button type="primary" icon={<UserOutlined />}>
 											Перейти
 										</Button>
@@ -138,7 +138,7 @@ const Home = (props) => {
 	return (
 		<>
 			<div className={globalStyles.crumbs}>
-				<NavLink className={globalStyles.crumbItem} exact to="/">
+				<NavLink className={globalStyles.crumbItem} exact to="/miac_web_cite">
 					<HomeOutlined size={16} />
 					<span className={globalStyles.crumbText}>
 						Главная
@@ -186,7 +186,7 @@ const Home = (props) => {
 							Последние показания
 						</span>
 						<div className={styles.widgetCard}>
-							<Card size="small" title={props.lastSurvey.userName} extra={<NavLink to={`/pacients/profile/${props.lastSurvey.userId}`}>Подробнее</NavLink>} style={{ width: 300 }}>
+							<Card size="small" title={props.lastSurvey.userName} extra={<NavLink to={`/miac_web_cite/pacients/profile/${props.lastSurvey.userId}`}>Подробнее</NavLink>} style={{ width: 300 }}>
 								<p className={styles.cardItem}>
 									<span className={styles.cardText}>
 										Пульс

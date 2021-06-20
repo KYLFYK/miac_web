@@ -13,16 +13,16 @@ const MenuList = (props) => {
 				</span>
 			</div>
 			<div className={styles.menu}>
-				<NavLink exact activeClassName={styles.active} className={styles.menuItem} to='/'>
+				<NavLink exact activeClassName={styles.active} className={styles.menuItem} to='/miac_web_cite'>
 					<span>Главная</span>
 					<div className={styles.notice}>
 						3
 					</div>
 				</NavLink>
-				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/pacients'>
+				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/miac_web_cite/pacients'>
 					<span>Пациенты</span>
 				</NavLink>
-				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/survey'>
+				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/miac_web_cite/survey'>
 					<span>Приемы</span>
 				</NavLink>
 				{/*<NavLink activeClassName={styles.active} className={styles.menuItem} to='/settings'>*/}

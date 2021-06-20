@@ -21,7 +21,7 @@ const Pacients = (props) => {
 			<Affix offsetTop={top}>
 				<div className={styles.white}>
 					<div className={globalStyles.crumbs}>
-						<NavLink className={globalStyles.crumbItem} exact to="/">
+						<NavLink className={globalStyles.crumbItem} exact to="/miac_web_cite">
 							<HomeOutlined size={16} />
 							<span className={globalStyles.crumbText}>
 								Главная
@@ -30,7 +30,7 @@ const Pacients = (props) => {
 						<span className={globalStyles.crumbSeparator}>
 							/
 						</span>
-						<NavLink className={globalStyles.crumbItem} to="/pacients">
+						<NavLink className={globalStyles.crumbItem} to="/miac_web_cite/pacients">
 							<span className={globalStyles.crumbText}>
 								Пациенты
 							</span>
