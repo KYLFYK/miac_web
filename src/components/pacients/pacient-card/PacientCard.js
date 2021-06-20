@@ -14,39 +14,55 @@ const PacientCard = (props) => {
 	return (
 		<div className={`${styles.pacient} ${props.currentFeel === 'bad' ? styles.mark : ''}`}>
 			<div className={styles.userContainer}>
-				<User link={`/pacients/profile/${props.userId}`} imgUrl={props.userImage} name={props.userName} addText={props.userId}  />
+				<User link={`/pacients/profile/${props.id}`} imgUrl={props.userImage} name={`${props.firstName} ${props.lastName}`} addText={props.snils}  />
 			</div>
 			<div className={styles.pacientKeys}>
 				<div className={styles.pacientKey}>
 					<span className={styles.keyTitle}>
-						Следующий прием:
+						Пол
 					</span>
 					<span className={styles.keyValue}>
-						{ props.nextSurvey }
+						{ props.sex === 'male' ? ' Мужской' : 'Женский' }
 					</span>
 				</div>
 				<div className={styles.pacientKey}>
 					<span className={styles.keyTitle}>
-						Крайние показатели давления
+						Возраст
 					</span>
 					<span className={styles.keyValue}>
-						{ props.pressure }
+						{ props.age }
 					</span>
 				</div>
 				<div className={styles.pacientKey}>
 					<span className={styles.keyTitle}>
-						Заболевание:
+						Рост:
 					</span>
 					<span className={styles.keyValue}>
-						{ props.disease }
+						{ props.height }
+					</span>
+				</div>
+				<div className={styles.pacientKey}>
+					<span className={styles.keyTitle}>
+						Рост:
+					</span>
+					<span className={styles.keyValue}>
+						{ props.weight }
+					</span>
+				</div>
+				<div className={styles.pacientKey}>
+					<span className={styles.keyTitle}>
+						Номер телефона:
+					</span>
+					<span className={styles.keyValue}>
+						{ props.phone }
 					</span>
 				</div>
 				<div className={styles.pacientKey}>
 					<span className={styles.keyTitle}>
 						Состояние:
 					</span>
-					<span className={`${styles.keyValue} ${props.currentFeel === 'bad' ? styles.red : ''} ${props.currentFeel === 'normal' ? styles.orange : ''} ${props.currentFeel === 'good' ? styles.green : ''}`}>
-						{ props.currentFeelText }
+					<span className={`${styles.keyValue} ${props.currentStatus === 'Тяжелое' ? styles.red : ''} ${props.currentStatus === 'Нормальное' ? styles.orange : ''} ${props.currentStatus === 'Хорошее' ? styles.green : ''}`}>
+						{ props.currentStatus }
 					</span>
 				</div>
 			</div>

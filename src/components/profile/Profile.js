@@ -6,11 +6,11 @@ import { HomeOutlined, UserOutlined, CalendarOutlined, UnorderedListOutlined, Hi
 import React from "react"
 import { Menu } from "antd"
 
-import UserProfile from "./user-profile/UserProfile"
 import CalendarPage from "./calendar/CalendarPage"
-import Health from "./health/Health"
 import History from "./history/History"
-import Recommendations from "./recommendations/Recommendations"
+import UserProfileContainer from "./user-profile/UserProfileContainer"
+import HealthContainer from "./health/HealthContainer"
+import RecommendationsContainer from "./recommendations/RecommendationsContainer"
 
 const Profile = (props) => {
 	const handleClick = (text) => {
@@ -38,45 +38,45 @@ const Profile = (props) => {
 				</span>
 				<NavLink className={globalStyles.crumbItem} to="/pacients/profile/012301248">
 					<span className={globalStyles.crumbText}>
-						Иванов Иван
+						{props.userInfo.fio}
 					</span>
 				</NavLink>
 			</div>
 			<div className={styles.tabs}>
 				<Menu onClick={(e) => handleClick(e.key)} selectedKeys={props.currentPage} mode="horizontal">
 					<Menu.Item key="info" icon={ <UserOutlined /> }>
-						<NavLink exact to={'/pacients/profile'}>
+						<NavLink to={`/pacients/profile/${props.userInfo.id}`}>
 							Информация
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="calendar" icon={ <CalendarOutlined /> }>
-						<NavLink to={'/pacients/calendar'}>
+						<NavLink to={`/pacients/profile/${props.userInfo.id}/calendar`}>
 							Расписание
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="health" icon={ <UnorderedListOutlined /> }>
-						<NavLink to={'/pacients/health'}>
+						<NavLink to={`/pacients/profile/${props.userInfo.id}/health`}>
 							Показания
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="history" icon={ <HistoryOutlined />}>
-						<NavLink to={'/pacients/history'}>
+						<NavLink to={`/pacients/profile/${props.userInfo.id}/history`}>
 							История
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="recommendations" icon={ <LikeOutlined /> }>
-						<NavLink to={'/pacients/recommendations'}>
+						<NavLink to={`/pacients/profile/${props.userInfo.id}/recommendations`}>
 							Рекомендации
 						</NavLink>
 					</Menu.Item>
 				</Menu>
 			</div>
 			<div>
-				<Route path={'/pacients/profile'} render={() => <UserProfile />} />
-				<Route path={'/pacients/calendar'} render={() => <CalendarPage />} />
-				<Route path={'/pacients/health'} render={() => <Health />} />
-				<Route path={'/pacients/history'} render={() => <History />} />
-				<Route path={'/pacients/recommendations'} render={() => <Recommendations />} />
+				<Route exact path={'/pacients/profile/:userId'} render={() => <UserProfileContainer userInfo={props.userInfo} />} />
+				<Route exact path={'/pacients/profile/:userId/calendar'} render={() => <CalendarPage />} />
+				<Route exact path={'/pacients/profile/:userId/health'} render={() => <HealthContainer userHealth={props.userHealth} />} />
+				<Route exact path={'/pacients/profile/:userId/history'} render={() => <History />} />
+				<Route exact path={'/pacients/profile/:userId/recommendations'} render={() => <RecommendationsContainer />} />
 			</div>
 		</div>
 	)

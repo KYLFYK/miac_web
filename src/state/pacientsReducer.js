@@ -2,6 +2,7 @@ import image from '../assets/user-pacient.jpg'
 
 const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
 const CHANGE_BTN_FILTER = 'CHANGE_BTN_FILTER'
+const SET_PACIENTS_LIST = 'SET_PACIENTS_LIST'
 
 export const setSearchText = (text) => ({
 	type: SET_SEARCH_TEXT,
@@ -13,6 +14,11 @@ export const setActiveBtnFilter = (text) => ({
 	btnName: text
 })
 
+export const setPacientsList = (items) => ({
+	type: SET_PACIENTS_LIST,
+	items: items
+})
+
 let initialState = {
 	searchFiledText: '',
 	filter: {
@@ -20,9 +26,10 @@ let initialState = {
 	},
 	pacientsList: [
 		{
-			userId: '01234567890',
+			userId: 1,
+			snils: '123-456-789 00',
 			userName: 'Иванов Иван',
-			userImage: image,
+			userImage: false,
 			nextSurvey: '02.08.2021 13:00',
 			disease: 'Гипертония',
 			currentFeel: 'good',
@@ -32,7 +39,7 @@ let initialState = {
 		{
 			userId: '01234567802',
 			userName: 'Рознев Владимир',
-			userImage: image,
+			userImage: false,
 			nextSurvey: '03.08.2021 12:10',
 			disease: 'Гипертония',
 			currentFeel: 'normal',
@@ -105,6 +112,11 @@ export const pacientsReducer = (state = initialState, action) => {
 				filter: {
 					buttonActive: action.btnName
 				}
+			}
+		case SET_PACIENTS_LIST:
+			return {
+				...state,
+				pacientsList: [...action.items]
 			}
 		default:
 			return state

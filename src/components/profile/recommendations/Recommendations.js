@@ -4,8 +4,9 @@ import { Button, Card, Col, Popconfirm, Row, Tag } from "antd"
 import ModalReccomend from '../user-profile/modals/ModalReccomend'
 import { PlusCircleOutlined, DeleteOutlined, QuestionCircleOutlined } from "@ant-design/icons"
 import React from "react"
+import { addRecommendation, setRecFormComment, setRecFormTag, setRecFormTitle } from "../../../state/profileReducer"
 
-const ExtraDelete = () => {
+const ExtraDelete = (props) => {
 	return (
 		<Popconfirm cancelText="Отменить" okText="Удалить" okButtonProps={{danger: true}} title="Удалить рекомендацию?" icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
 			<Button danger icon={<DeleteOutlined />} />
@@ -13,7 +14,7 @@ const ExtraDelete = () => {
 	)
 }
 
-const Recommendations = () => {
+const Recommendations = (props) => {
 	const [visibleReccomend, setVisibleReccomend] = React.useState(false);
 	
 	const showModalRecommend = () => {
@@ -26,36 +27,32 @@ const Recommendations = () => {
 				Добавить рекомендацию
 			</Button>
 			<div className={styles.list}>
-				<Row gutter={16}>
-					<Col span={8}>
-						<Card title="Вносить показания" extra={<ExtraDelete />}>
-							<p>
-								Каждый день, утром и вечером замерять давление, пульс и вносить в приложение.
-							</p>
-							<p>
-								Можете измерять после физической нагрузки и в состоянии покоя. Только обязательно указывайте в комментарии в каком состоянии были измерены показания.
-							</p>
-							<Tag color="#FF4D4F">Крайне важно</Tag>
+				{ props.recommendations.map(item => {
+					return (
+						<Card title={item.title} extra={<ExtraDelete />}>
+							{ item.text.map(text => {
+								return (
+									<p>
+										{ text }
+									</p>
+								)
+							}) }
+							{ item.tags.map(tag => {
+								return (
+									<Tag color={tag.color}>{ tag.text }</Tag>
+								)
+							}) }
 						</Card>
-					</Col>
-					<Col span={8}>
-						<Card title="Режим дня" extra={<ExtraDelete />}>
-							<p>
-								Рекомендуется соблюдать режим дня. Сон 7-8 часов в день.
-							</p>
-							<Tag color="#95DE64">Рекомендуется</Tag>
-						</Card>
-					</Col>
-					<Col span={8}>
-						<Card title="Принимать витамины" extra={<ExtraDelete />}>
-							<p>
-								Рекомендую приобрести витамины. Принимать регулярно.
-							</p>
-							<Tag color="#1890FF">Важно</Tag>
-						</Card>
-					</Col>
-				</Row>
-				<ModalReccomend setVisible={setVisibleReccomend} visible={visibleReccomend} />
+					)
+				}) }
+				<ModalReccomend setRecFormTitle={props.setRecFormTitle}
+				                setRecFormComment={props.setRecFormComment}
+				                setRecFormTag={props.setRecFormTag}
+				                setVisible={setVisibleReccomend}
+				                visible={visibleReccomend}
+				                addRecommendation={props.addRecommendation}
+				                recommendationsForm={props.recommendationsForm}
+				/>
 			</div>
 		</div>
 	)

@@ -43,7 +43,7 @@ const ModalTest = (props) => {
 				form={form}
 			>
 				<Form.Item required={true} label="Показания">
-					<Select disabled={!!props.defaultActiveFirstOption} value={props.defaultActiveFirstOption ? props.defaultActiveFirstOption : undefined} placeholder='Выберите' mode="multiple">
+					<Select disabled={!!props.defaultActiveFirstOption} value={props.defaultActiveFirstOption ? [props.defaultActiveFirstOption] : undefined} placeholder='Выберите' mode="multiple">
 						<Select.Option value="pulse">Пульс</Select.Option>
 						<Select.Option value="pressure">Давление</Select.Option>
 						<Select.Option value="height">Рост</Select.Option>

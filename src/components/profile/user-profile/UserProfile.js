@@ -1,7 +1,5 @@
 import styles from './UserProfile.module.scss'
 
-import image from '../../../assets/user-pacient.jpg'
-
 import {
 	MessageOutlined,
 	EditOutlined,
@@ -18,6 +16,7 @@ import React from "react"
 import ModalTest from "./modals/ModalTest"
 import ModalReccomend from "./modals/ModalReccomend"
 import ModalWrite from "./modals/ModalWrite"
+import Avatar from "antd/es/avatar/avatar"
 
 const Better = () => {
 	return (
@@ -30,7 +29,7 @@ const Better = () => {
 	)
 }
 
-const UserProfile = () => {
+const UserProfile = (props) => {
 	const warning = () => {
 		message.warning('Реализация запланирована на будущее');
 	};
@@ -56,14 +55,21 @@ const UserProfile = () => {
 			<div className={styles.header}>
 				<div className={styles.user}>
 					<div className={styles.userImage}>
-						<img src={image} alt="Фотография пользователя"/>
+						{ props.userInfo.userImage ? (
+							<img src={props.userInfo.userImage} alt="Фотография пользователя"/>
+						) : (
+							<Avatar style={{ backgroundColor: '#f56a00', width: '80px',
+								height: '80px', lineHeight: '80px' }}>{props.userInfo.fio[0]}</Avatar>
+						) }
+						
+						
 					</div>
 					<div className={styles.userInfo}>
 						<span className={styles.name}>
-							Рознев Виктор Олегович
+							{ props.userInfo.fio }
 						</span>
 						<span className={styles.age}>
-							34 года
+							{ props.userInfo.age }
 						</span>
 					</div>
 					<div className={styles.links}>
@@ -88,37 +94,40 @@ const UserProfile = () => {
 			</div>
 			<div className={styles.table}>
 				<Descriptions bordered layout="vertical">
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Снилс">123-456-789 01</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Пол">Мужской</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Крайний визит">12.06.2021</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Дата рождения">34.03.1987</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Рост">184</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Вес">83</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Снилс">{ props.userInfo.snils }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Пол">{ props.userInfo.male }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Крайний визит">{ props.userInfo.lastVizit }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Дата рождения">{ props.userInfo.birhtDay }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Рост">{ props.userInfo.height }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Вес">{ props.userInfo.weight }</Descriptions.Item>
 					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Текущее состояние" span={3}>
-						<Badge status="warning" text="Нормальное" />
+						<Badge status="warning" text={ props.userInfo.currentFeeling === 'good' ? 'Нормальное' : 'Тяжелое' } />
 					</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Вредные привычки">Отсутсвуют</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Вредные привычки">{ props.userInfo.badHabits ? props.userInfo.badHabits.join(', ') : 'Отсутсвуют' }</Descriptions.Item>
 					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Рекомендации">
 						<span style={{ marginRight: '15px' }}>
-							Нет
+							{ props.userInfo.recommendations ? props.userInfo.recommendations.join(', ') : 'Нет' }
 						</span>
 						<Button type='primary' onClick={showModalRecommend}>Добавить</Button>
 					</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Жалобы">Головные боли</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Хронические заболевания">Хроническое заболевание лёгких</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Средний пульс">82</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Среднее давление">123 / 84</Descriptions.Item>
-					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Анамез">
-						<h4>
-							Пример заголовка
-						</h4>
-						<p style={{ marginTop: '2px', marginBottom: '2px' }}>
-							Пример текстового блока, тут можно описывать историю пациента.
-						</p>
-						<p style={{ marginTop: '2px', marginBottom: '2px' }}>
-							Блок может быть любого размера
-						</p>
-					</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Жалобы">{ props.userInfo.complaints }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Хронические заболевания">{ props.userInfo.chronic }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Средний пульс">{ props.userInfo.averagePulse }</Descriptions.Item>
+					<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Среднее давление">{ props.userInfo.averagePressure }</Descriptions.Item>
+					{ props.userInfo.anamez.text.length ? (
+						<Descriptions.Item labelStyle={{ fontWeight: 'bold' }} label="Анамез">
+							<h4>
+								{ props.userInfo.anamez.title }
+							</h4>
+							{ props.userInfo.anamez.text.map(text => {
+								return (
+									<p style={{ marginTop: '2px', marginBottom: '2px' }}>
+										{ text }
+									</p>
+								)
+							}) }
+						</Descriptions.Item>
+						) : null }
 				</Descriptions>
 			</div>
 			<Affix offsetBottom={30}>

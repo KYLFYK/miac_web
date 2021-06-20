@@ -1,7 +1,9 @@
 @import './src/global/_variables';
 
 .list {
-
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
 }
 
 .addRecommend {

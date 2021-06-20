@@ -1,4 +1,4 @@
-import { Form, Input, message, Switch } from "antd"
+import { Form, Input, message, Select, Switch } from "antd"
 import TextArea from "antd/es/input/TextArea"
 import Modal from "antd/es/modal/Modal"
 import React from "react"
@@ -10,12 +10,15 @@ const ModalReccomend = (props) => {
 	
 	const handleOk = () => {
 		setConfirmLoading(true);
-		form.submit()
+		
+		if (props.addRecommendation) {
+			props.addRecommendation()
+		}
 		
 		setTimeout(() => {
 			props.setVisible(false);
 			setConfirmLoading(false);
-			message.success( 'Рекомендации отправлены' )
+			message.success( 'Рекомендации добавлены' )
 		}, 2000);
 	};
 	
@@ -23,6 +26,24 @@ const ModalReccomend = (props) => {
 		console.log('Clicked cancel button');
 		props.setVisible(false);
 	};
+	
+	const handleChangeTitle = (e) => {
+		if (props.setRecFormTitle) {
+			props.setRecFormTitle(e.target.value)
+		}
+	}
+	
+	const handleChangeComment = (e) => {
+		if (props.setRecFormComment) {
+			props.setRecFormComment(e.target.value)
+		}
+	}
+	
+	const handleChangeTag = (e) => {
+		if (props.setRecFormTag) {
+			props.setRecFormTag(e)
+		}
+	}
 	
 	return (
 		<Modal okText="Добавить" cancelText="Закрыть"
@@ -39,10 +60,17 @@ const ModalReccomend = (props) => {
 				form={form}
 			>
 				<Form.Item required={true} label="Рекомендация">
-					<Input placeholder="Краткое описание" />
+					<Input value={props.recommendationsForm ? props.recommendationsForm.titleText : undefined} onChange={(e) => handleChangeTitle(e)} placeholder="Краткое описание" />
 				</Form.Item>
 				<Form.Item label="Комментарий">
-					<TextArea rows={2} />
+					<TextArea value={props.recommendationsForm ? props.recommendationsForm.commentText : undefined} onChange={(e) => handleChangeComment(e)} rows={2} />
+				</Form.Item>
+				<Form.Item label="Метка">
+					<Select value={props.recommendationsForm ? props.recommendationsForm.tagText : undefined} onChange={(e) => handleChangeTag(e)}>
+						<Select.Option value="Важно">Важно</Select.Option>
+						<Select.Option value="Рекомендуется">Рекомендуется</Select.Option>
+						<Select.Option value="Крайне важно">Крайне важно</Select.Option>
+					</Select>
 				</Form.Item>
 				<Form.Item label="Попросить связаться после получения">
 					<Switch />

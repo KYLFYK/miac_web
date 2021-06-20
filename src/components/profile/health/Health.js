@@ -7,95 +7,13 @@ import React from "react"
 
 import ModalTest from '../user-profile/modals/ModalTest'
 
-const Health = () => {
+const Health = (props) => {
 	const [visibleTest, setVisibleTest] = React.useState(false);
 	const [defaultActiveOption, setDefaultOption] =  React.useState('');
 	
-	const data1 = [
-		{
-			name: '01.06',
-			['Диастолическое АД']: 92,
-			['Систолическое АД']: 148,
-			amt: 2400,
-		},
-		{
-			name: '02.06',
-			['Диастолическое АД']: 88,
-			['Систолическое АД']: 141,
-			amt: 2210,
-		},
-		{
-			name: '03.06',
-			['Диастолическое АД']: 81,
-			['Систолическое АД']: 137,
-			amt: 2290,
-		},
-		{
-			name: '04.06',
-			['Диастолическое АД']: 81,
-			['Систолическое АД']: 132,
-			amt: 2000,
-		},
-		{
-			name: '05.06',
-			['Диастолическое АД']: 74,
-			['Систолическое АД']: 121,
-			amt: 2181,
-		},
-		{
-			name: '06.06',
-			['Диастолическое АД']: 76,
-			['Систолическое АД']: 127,
-			amt: 2500,
-		},
-		{
-			name: '07.06',
-			['Диастолическое АД']: 85,
-			['Систолическое АД']: 130,
-			amt: 2100,
-		},
-	]
-	
-	const dataPulse = [
-		{
-			name: '01.06',
-			['Пульс']: 128,
-			amt: 2400,
-		},
-		{
-			name: '02.06',
-			['Пульс']: 121,
-			amt: 2210,
-		},
-		{
-			name: '03.06',
-			['Пульс']: 117,
-			amt: 2290,
-		},
-		{
-			name: '04.06',
-			['Пульс']: 112,
-			amt: 2000,
-		},
-		{
-			name: '05.06',
-			['Пульс']: 101,
-			amt: 2181,
-		},
-		{
-			name: '06.06',
-			['Пульс']: 107,
-			amt: 2500,
-		},
-		{
-			name: '07.06',
-			['Пульс']: 110,
-			amt: 2100,
-		},
-	]
 	
 	const warning = () => {
-		message.warning('Реализация запланирована на будущее');
+		message.warning('Реализация запланирована на будущее').then(() => {});
 	};
 	
 	const showModalTest = (text) => {
@@ -112,7 +30,7 @@ const Health = () => {
 					</span>
 				</span>
 				<ResponsiveContainer width="100%" height={300}>
-					<LineChart width="100%" height="100%" data={data1}>
+					<LineChart width="100%" height="100%" data={props.averagePressure}>
 						<CartesianGrid strokeDasharray="3 3" />
 						<XAxis dataKey="name" />
 						<YAxis />
@@ -142,7 +60,7 @@ const Health = () => {
 					<Alert message="У пациента наблюдается повышенный пульс" type="error" />
 				</span>
 				<ResponsiveContainer width="100%" height={300}>
-					<LineChart width="100%" height="100%" data={dataPulse}>
+					<LineChart width="100%" height="100%" data={props.averagePulse}>
 						<CartesianGrid strokeDasharray="3 3" />
 						<XAxis dataKey="name" />
 						<YAxis />

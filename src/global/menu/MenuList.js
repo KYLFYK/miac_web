@@ -25,9 +25,9 @@ const MenuList = (props) => {
 				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/survey'>
 					<span>Приемы</span>
 				</NavLink>
-				<NavLink activeClassName={styles.active} className={styles.menuItem} to='/settings'>
-					<span>Настройки</span>
-				</NavLink>
+				{/*<NavLink activeClassName={styles.active} className={styles.menuItem} to='/settings'>*/}
+				{/*	<span>Настройки</span>*/}
+				{/*</NavLink>*/}
 			</div>
 		</div>
 	)
