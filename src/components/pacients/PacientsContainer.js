@@ -20,10 +20,10 @@ class PatientsApi extends React.Component {
 	}
 	
 	componentDidMount() {
-		axios.get('http://77.222.52.193:3005/patients').then(response => {
-			console.log(response.data)
-			this.props.setPacientsList(response.data.items)
-		})
+		// axios.get('http://77.222.52.193:3005/patients').then(response => {
+		// 	console.log(response.data)
+		// 	this.props.setPacientsList(response.data.items)
+		// })
 	}
 	
 	render() {
