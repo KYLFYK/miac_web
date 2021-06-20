@@ -45,38 +45,38 @@ const Profile = (props) => {
 			<div className={styles.tabs}>
 				<Menu onClick={(e) => handleClick(e.key)} selectedKeys={props.currentPage} mode="horizontal">
 					<Menu.Item key="info" icon={ <UserOutlined /> }>
-						<NavLink exact to={'/pacients/profile/0123456780'}>
+						<NavLink exact to={'/pacients/profile'}>
 							Информация
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="calendar" icon={ <CalendarOutlined /> }>
-						<NavLink to={'/pacients/profile/0123456780/calendar'}>
+						<NavLink to={'/pacients/calendar'}>
 							Расписание
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="health" icon={ <UnorderedListOutlined /> }>
-						<NavLink to={'/pacients/profile/0123456780/health'}>
+						<NavLink to={'/pacients/health'}>
 							Показания
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="history" icon={ <HistoryOutlined />}>
-						<NavLink to={'/pacients/profile/0123456780/history'}>
+						<NavLink to={'/pacients/history'}>
 							История
 						</NavLink>
 					</Menu.Item>
 					<Menu.Item key="recommendations" icon={ <LikeOutlined /> }>
-						<NavLink to={'/pacients/profile/0123456780/recommendations'}>
+						<NavLink to={'/pacients/recommendations'}>
 							Рекомендации
 						</NavLink>
 					</Menu.Item>
 				</Menu>
 			</div>
 			<div>
-				<Route exact path={'/pacients/profile/0123456780'} render={() => <UserProfile />} />
-				<Route exact path={'/pacients/profile/0123456780/calendar'} render={() => <CalendarPage />} />
-				<Route exact path={'/pacients/profile/0123456780/health'} render={() => <Health />} />
-				<Route exact path={'/pacients/profile/0123456780/history'} render={() => <History />} />
-				<Route exact path={'/pacients/profile/0123456780/recommendations'} render={() => <Recommendations />} />
+				<Route path={'/pacients/profile'} render={() => <UserProfile />} />
+				<Route path={'/pacients/calendar'} render={() => <CalendarPage />} />
+				<Route path={'/pacients/health'} render={() => <Health />} />
+				<Route path={'/pacients/history'} render={() => <History />} />
+				<Route path={'/pacients/recommendations'} render={() => <Recommendations />} />
 			</div>
 		</div>
 	)

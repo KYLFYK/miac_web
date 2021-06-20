@@ -7,6 +7,7 @@ import MenuContainer from "./menu/MenuContainer"
 import HomeContainer from "../components/home/HomeContainer"
 import PacientsContainer from "../components/pacients/PacientsContainer"
 import ProfileContainer from "../components/profile/ProfileContainer"
+import SurveyContainer from "../components/survey/SurveyContainer"
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
             <div className={styles.content}>
                 <Route exact path={['/home', '/']} render={() => <HomeContainer />} />
                 <Route exact path={'/pacients'} render={() => <PacientsContainer />} />
-                <Route path={'/pacients/profile/'} render={() => <ProfileContainer />}  />
+                <Route path={['/pacients/profile/', '/pacients/calendar', '/pacients/health', '/pacients/history', '/pacients/recommendations']} render={() => <ProfileContainer />}  />
+                <Route path={'/survey'} render={() => <SurveyContainer />}  />
             </div>
         </div>
       </BrowserRouter>
